@@ -14,6 +14,7 @@
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@types/sqlite3": "^3.1.8",
+		"@types/three": "^0.156.0",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
 		"eslint": "^8.28.0",
@@ -29,9 +30,11 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/kit": "^1.25.0",
 		"aws-sdk": "^2.1445.0",
 		"mock-aws-s3": "^4.0.2",
 		"nock": "^13.3.3",
-		"sqlite3": "^5.1.6"
+		"sqlite3": "^5.1.6",
+		"three": "^0.156.1"
 	}
 }

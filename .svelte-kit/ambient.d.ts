@@ -42,6 +42,7 @@ declare module '$env/static/private' {
 	export const npm_package_devDependencies_vite: string;
 	export const TMPDIR: string;
 	export const HOMEBREW_REPOSITORY: string;
+	export const npm_package_dependencies__sveltejs_kit: string;
 	export const npm_package_scripts_lint: string;
 	export const npm_config_init_license: string;
 	export const TERM_PROGRAM_VERSION: string;
@@ -99,6 +100,7 @@ declare module '$env/static/private' {
 	export const SHLVL: string;
 	export const npm_package_type: string;
 	export const VSCODE_GIT_ASKPASS_MAIN: string;
+	export const npm_package_dependencies_three: string;
 	export const npm_config_save_prefix: string;
 	export const npm_config_strict_ssl: string;
 	export const HOMEBREW_PREFIX: string;
@@ -106,6 +108,7 @@ declare module '$env/static/private' {
 	export const LOGNAME: string;
 	export const LESS: string;
 	export const YARN_WRAP_OUTPUT: string;
+	export const npm_package_devDependencies__types_three: string;
 	export const npm_package_scripts_format: string;
 	export const npm_lifecycle_script: string;
 	export const VSCODE_GIT_IPC_HANDLE: string;
@@ -169,6 +172,7 @@ declare module '$env/dynamic/private' {
 		npm_package_devDependencies_vite: string;
 		TMPDIR: string;
 		HOMEBREW_REPOSITORY: string;
+		npm_package_dependencies__sveltejs_kit: string;
 		npm_package_scripts_lint: string;
 		npm_config_init_license: string;
 		TERM_PROGRAM_VERSION: string;
@@ -226,6 +230,7 @@ declare module '$env/dynamic/private' {
 		SHLVL: string;
 		npm_package_type: string;
 		VSCODE_GIT_ASKPASS_MAIN: string;
+		npm_package_dependencies_three: string;
 		npm_config_save_prefix: string;
 		npm_config_strict_ssl: string;
 		HOMEBREW_PREFIX: string;
@@ -233,6 +238,7 @@ declare module '$env/dynamic/private' {
 		LOGNAME: string;
 		LESS: string;
 		YARN_WRAP_OUTPUT: string;
+		npm_package_devDependencies__types_three: string;
 		npm_package_scripts_format: string;
 		npm_lifecycle_script: string;
 		VSCODE_GIT_IPC_HANDLE: string;
