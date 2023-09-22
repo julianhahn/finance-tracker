@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import * as THREE from "three";
+  import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
   let canvas: HTMLCanvasElement | null = null;
 
@@ -19,14 +20,34 @@
     renderer.setPixelRatio(window.devicePixelRatio);
     const geometry = new THREE.BoxGeometry(1, 1, 1);
     const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
     camera.position.z = 5;
+
+    const loader = new GLTFLoader();
+    let model;
+    let mixer: THREE.AnimationMixer | null = null;
+
+    loader.load("dollar_bill_swing.glb", (gltf: any) => {
+      model = gltf.scene;
+      model.scale.set(1, 1, 1); // Scale if necessary
+      let light = new THREE.AmbientLight(0xffffff, 1);
+      scene.add(light);
+      scene.add(model);
+
+      // If you have animations:
+      mixer = new THREE.AnimationMixer(model);
+
+      gltf.animations.forEach((clip: any) => {
+        if (!mixer) {
+          throw new Error("Mixer not found");
+        }
+        mixer.clipAction(clip).repetitions = Infinity;
+        mixer.clipAction(clip).play();
+      });
+    });
 
     function animate() {
       requestAnimationFrame(animate);
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
+      mixer?.update(0.01);
       renderer.render(scene, camera);
     }
     animate();
