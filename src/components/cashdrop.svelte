@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import * as THREE from "three";
   import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+  import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
   let canvas: HTMLCanvasElement | null = null;
 
@@ -18,9 +19,9 @@
     const renderer = new THREE.WebGLRenderer({ canvas: canvas });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
     camera.position.z = 5;
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.update();
 
     const loader = new GLTFLoader();
     let model;
@@ -49,6 +50,7 @@
       requestAnimationFrame(animate);
       mixer?.update(0.01);
       renderer.render(scene, camera);
+      controls.update();
     }
     animate();
   });
